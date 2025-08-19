@@ -1,4 +1,4 @@
-let connection = new WebSocket('wss://linkloopapi-production.up.railway.app/ws');
+let connection = new WebSocket('wss://linkloop.up.railway.app/ws');
 function login_page() {
     document.getElementById('initial_page').style.display = 'none';
     document.getElementById('login_page').style.display = 'block';
@@ -125,7 +125,7 @@ async function signup() {
         return;
     }
 
-    let is_user_id_available = await fetch(`http://linkloopapi-production.up.railway.app/id_available/${username_}`)
+    let is_user_id_available = await fetch(`http://linkloop.up.railway.app/id_available/${username_}`)
     is_user_id_available = await is_user_id_available.json();
 
 
@@ -277,12 +277,9 @@ function remove_verify_box() {
 
 
 async function listener() {
-    console.log('listener attached');
     while (true) {
         let action = await waitForMessage();
         action = JSON.parse(action);
-
-        console.log(action);
 
         if (action.type == 'make_contact_button') {
             make_contact_button(action.id, action.last_message, action.new_count, action.status);
@@ -320,7 +317,6 @@ async function add_new_contact() {
     }));
     let response = await waitForMessage();
     response=JSON.parse(response);
-    //let response = await window.pywebview.api.add_contact(id);
     hideLoader('main');
     if (response == true) {
         warning(`
@@ -404,7 +400,7 @@ function update_status(id, status) {
 
 async function make_header(id) {
     //let name = await window.pywebview.api.get_name(id);
-    let name = await fetch(`http://linkloopapi-production.up.railway.app/get_name/${id}`)
+    let name = await fetch(`http://linkloop.up.railway.app/get_name/${id}`)
     name=await name.json();
 
     let space = document.querySelector('.header_place');
@@ -653,7 +649,7 @@ document.getElementById('add_bar').addEventListener('focus', async () => {
     html_list.id = 'users_list';
     document.body.appendChild(html_list);
 
-    allUsers = await fetch("http://linkloopapi-production.up.railway.app/get_all_usernames");
+    allUsers = await fetch("http://linkloop.up.railway.app/get_all_usernames");
     allUsers = await allUsers.json();
 
     html_list.classList.add('box');
