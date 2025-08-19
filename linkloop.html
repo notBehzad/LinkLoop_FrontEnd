@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<!-- loadings not working due to id clash -->
+<html>
+<head>
+    <link rel="stylesheet" href="linkloop.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="initial_page">
+        <div class="box center" style=" padding: 40px !important; border-radius: 30px;">
+            <p id="def_text">LinkLoop</p>
+            <p style="font-size: 10px;">by Behzad</p>
+            <p>Already have an account?</p>
+            <button class="button" onclick="login_page()">Login</button>
+            <p>New here?</p>
+            <button class="button" onclick="signup_page()">Create a new account</button>
+        </div>
+    </div>
+
+    <div id="login_page" style="display: none;">
+        <div class="box center" style=" padding: 40px !important; border-radius: 30px;">
+            <p class="heading">Login</p>
+            <input id="username" class="input" type="text" placeholder="Username" style=" padding: 5px 0 5px 10px !important;" />
+            <input id="password" class="input" type="password" placeholder="Password" style=" padding: 5px 0 5px 10px !important; " />
+
+            <p style="color: red" id="show_error"></p>
+
+            <div style="display: flex">
+                <button class="button" onclick="back('login')" style="margin-right: 40px;">Back</button>
+                <button class="button" onclick="login()" style="margin-left:40px; background-color: #07A0C3">Login</button>
+            </div>
+        </div>
+        <div id="login_loading" style="position: fixed"></div>
+    </div>
+
+    <div id="signup_page" style="display: none;">
+        <div class="box center" style=" padding: 40px !important; border-radius: 30px;">
+            <p class="heading">Sign up</p>
+
+            <input id="new_username" class="input" type="text" placeholder="Username" style=" padding: 5px 0 5px 10px !important; " />
+            <input id="new_nickname" class="input" type="text" placeholder="Nickname" style=" padding: 5px 0 5px 10px !important; " />
+            <input id="new_password" class="input" type="password" placeholder="Password" style=" padding: 5px 0 5px 10px !important; " />
+            <input id="confirm_password" class="input" type="password" placeholder="Confirm Password" style=" padding: 5px 0 5px 10px !important; " />
+
+            <p id="signup_show_error" style="color: red"></p>
+
+            <div style="display: flex">
+                <button class="button" onclick="back()" style="margin-right:40px;">Back</button>
+                <button class="button" onclick="signup()" style="margin-left:40px; background-color: #07A0C3">Create</button>
+
+            </div>
+        </div>
+
+        <div id="signup_loading" style="position: fixed"></div>
+    </div>
+
+
+
+
+    <div id="main_page" style="display: none;">
+        <div id="side_menu">
+            <p style="margin: 10px 0 10px 20px; font-weight: 600; font-size: 20px;">Contacts</p>
+            <div id="contact_list">
+                <p id="no_contacts" style="margin-left: 20px; font-size: 13px;">No contacts added, add some</p>
+            </div>
+        </div>
+        <div id="chat_list" style="position: absolute; left: 25vw; width: 75%; overflow-x: hidden; overflow-y: scroll; scroll-behavior: smooth; height: 100%;">
+            <div id="text" style="font-size: 30px; position: fixed; top: 50%; left: 62.5%; transform: translate(-50%, -50%);"></div>
+            <div id="chat" style="margin-top: 80px;"></div>
+            <div id="input" style="position: fixed; bottom: 25px; left: 30%; width: 60%; height: 100px;"></div>
+            <div class="header_place"></div>
+        </div>
+
+        <input id="add_bar" class="box" type="text" placeholder="Add Contacts" style="padding: 10px 0 10px 10px !important; color: #fbfffe;" />
+        <button id="add_button" class="button" onclick="verify_add()" style="background-color: #272727; color: #fbfffe">Add</button>
+
+        <div id="notif_div" style="position: fixed; top: 2%; left: 62.5%; transform: translate(-50%, 0); display: flex; flex-direction: column-reverse; margin: 2px 0 7px 0; max-height: 20%; overflow: hidden"></div>
+
+        <div id="alert" class="fade" style="position: fixed; top: 0%; left: 0%;"></div>
+        <div id="main_loading" style="position: fixed"></div>
+
+    </div>
+
+    <script src="linkloop.js"></script>
+</body>
+</html>
