@@ -1,4 +1,14 @@
-let connection = new WebSocket('wss://linkloop.up.railway.app/ws');
+let connection = new WebSocket('ws://linkloop.up.railway.app/ws');
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelector(".intro").classList.add("fade-out");
+        setTimeout(() => {
+          document.querySelector(".intro").style.display = "none";
+          document.getElementById('initial_page').style.display = "block";
+        }, 800); 
+      }, 1500);
+    });
+
 function login_page() {
     document.getElementById('initial_page').style.display = 'none';
     document.getElementById('login_page').style.display = 'block';
