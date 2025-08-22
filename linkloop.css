@@ -5,9 +5,9 @@ body {
     margin: 0px;
     min-height: 100vh;
     color: #FBFFFE;
-    background-image: url('bg.png'); /* your doodle PNG */
+    background-image: url('bg.png');
     background-repeat: no-repeat;
-    background-size: cover; /* fills the whole width/height, keeps ratio */
+    background-size: cover;
     background-position: center;
     margin: 0;
     padding: 0;
@@ -21,6 +21,61 @@ body {
 p {
     color: #FBFFFE;
 }
+
+.intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      display: flex;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .intro span {
+      margin: -5px;
+      font-weight: 800;
+      font-size: 80px;
+      display: inline-block;
+      transform: translateY(100%);
+      color: #272727;
+      opacity: 0;
+      animation: slideUp 0.4s forwards;
+    }
+
+    .intro span:nth-child(1) { animation-delay: 0s; }
+    .intro span:nth-child(2) { animation-delay: 0.06s; }
+    .intro span:nth-child(3) { animation-delay: 0.12s; }
+    .intro span:nth-child(4) { animation-delay: 0.18s; }
+    .intro span:nth-child(5) { animation-delay: 0.24s; }
+    .intro span:nth-child(6) { animation-delay: 0.30s; }
+    .intro span:nth-child(7) { animation-delay: 0.36s; }
+    .intro span:nth-child(8) { animation-delay: 0.42s; margin-right: 10px; }
+
+
+
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .intro.fade-out {
+      animation: fadeOut 0.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
 
 #def_text, #text {
     font-size: 50px;
